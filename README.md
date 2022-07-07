@@ -1,3 +1,2 @@
-# ngx-at-dropdownlist
-Easy to use angular dropdown list.
-work in progress!!
+# ngx-at
+Workspace for reusable angular components and libraries
