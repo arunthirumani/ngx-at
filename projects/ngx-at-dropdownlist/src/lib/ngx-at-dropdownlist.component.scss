@@ -1,0 +1,81 @@
+:host {
+  .label {
+    font-size: 12px;
+    color: #7c7c7c;
+  }
+  .select-box {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+    height: 35px;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px;
+    border-radius: 3px;
+    .selected-data {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    &:hover {
+      .k-icon {
+        opacity: 1;
+      }
+    }
+    .k-icon {
+      margin-left: auto;
+      opacity: 0.54;
+    }
+  }
+  .list-container {
+    list-style: none;
+    padding: 0;
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+    border-radius: 4px;
+    position: absolute;
+    min-width: 200px;
+    width: 100%;
+    z-index: 100;
+    background: #fff;
+    top: 18px;
+    left: 10px;
+  }
+
+  .scrollable-list {
+    max-height: 100px;
+    overflow: auto;
+  }
+
+  .list-item {
+    color: #181828;
+    font-size: 12px;
+    min-height: 40px;
+    border-bottom: 1px solid #eee;
+    padding: 2px 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover,
+    &.focused {
+      background: #f5f5f5;
+    }
+  }
+  .dropdown-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-top: 3px;
+  }
+  .input-container {
+    padding: 10px;
+    .search-input {
+      min-width: 0;
+      margin: 0px;
+      width: 100%;
+      padding-left: 30px;
+      height: 32px;
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+}

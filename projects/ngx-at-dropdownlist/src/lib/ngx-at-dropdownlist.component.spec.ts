@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgxAtDropdownlistComponent } from './ngx-at-dropdownlist.component';
 
@@ -8,7 +9,11 @@ describe('NgxAtDropdownlistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgxAtDropdownlistComponent ]
+      declarations: [ NgxAtDropdownlistComponent ],
+      imports: [
+        ReactiveFormsModule,
+        FormsModule
+      ]
     })
     .compileComponents();
   }));

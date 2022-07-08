@@ -1,0 +1,75 @@
+<label class="label">{{label}}</label>
+
+<div class="dropdown-container">
+    <span
+        class="select-box"
+        tabindex="0"
+        (click)="dropdownClickHandler($event)"
+        (focus)="focusHandler($event)"
+        (blur)="blurHandler()"
+    >
+        <span
+            *ngIf="selectedItem.value"
+            class="selected-data"
+        >
+            <ng-container *ngTemplateOutlet="selectedItemTemplate"></ng-container>
+        </span>
+        <span class="select-icon"></span>
+    </span>
+    <div
+        class="list-container"
+        [ngClass]="{'scrollable-list': !filterable}"
+    >
+        <div
+            *ngIf="filterable"
+            class="input-container"
+        >
+            <input
+                class="search-input"
+                [formControl]="filter"
+            >
+        </div>
+        <ul
+            *ngIf="displayList"
+            [ngClass]="{'scrollable-list': filterable}"
+        >
+            <ng-container *ngIf="textField && valueField">
+                <ng-container *ngTemplateOutlet="objectTemplate"></ng-container>
+            </ng-container>
+            <ng-container *ngIf="!textField && !valueField">
+                <ng-container *ngTemplateOutlet="plainTemplate"></ng-container>
+            </ng-container>
+        </ul>
+    </div>
+</div>
+
+<ng-template #plainTemplate>
+    <li
+        *ngFor="let item of dataList"
+        class="list-item"
+        [ngClass]="{'focused': selectedItem.value === item}"
+        (click)="listItemClickHandler(item, $event)"
+    >
+        {{item}}
+    </li>
+</ng-template>
+
+<ng-template #objectTemplate>
+    <li
+        *ngFor="let item of dataList"
+        class="list-item"
+        [ngClass]="{'focused': selectedItem.value === item}"
+        (click)="listItemClickHandler(item, $event)"
+    >
+        {{item[textField]}}
+    </li>
+</ng-template>
+
+<ng-template #nodataTemplate>
+    <div>data not available yet!!</div>
+</ng-template>
+
+<ng-template #selectedItemTemplate>
+    <ng-container *ngIf="textField">{{selectedItem.value[textField]}}</ng-container>
+    <ng-container *ngIf="!textField">{{selectedItem.value}}</ng-container>
+</ng-template>
