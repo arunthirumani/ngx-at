@@ -8,7 +8,7 @@ import { FormControl, ValidationErrors, Validators } from '@angular/forms';
 })
 export class NgxAtDropdownlistComponent implements OnInit {
 
-  @Input() dataList = [];
+  @Input() dataList = ['apple', 'banana', 'carrot'];
   @Input() textField;
   @Input() valueField;
   @Input() label;
