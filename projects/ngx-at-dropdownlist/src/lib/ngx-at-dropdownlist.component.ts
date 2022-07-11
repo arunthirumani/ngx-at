@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@ang
 import { FormControl, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'lib-ngx-at-dropdownlist',
+  selector: 'ngx-at-dropdownlist',
   templateUrl: './ngx-at-dropdownlist.component.html',
   styleUrls: ['./ngx-at-dropdownlist.component.scss']
 })
