@@ -8,7 +8,7 @@ import { FormControl, ValidationErrors, Validators } from '@angular/forms';
 })
 export class NgxAtDropdownlistComponent implements OnInit {
 
-  @Input() dataList = ['apple', 'banana', 'carrot'];
+  @Input() dataList = [];
   @Input() textField;
   @Input() valueField;
   @Input() label;
@@ -83,7 +83,7 @@ export class NgxAtDropdownlistComponent implements OnInit {
 
   removeEventListeners() {
     if (this.documentClickEventListener) {
-      document.body.removeEventListener('mousedown', this.documentClickEventListener);
+      document.removeEventListener('mousedown', this.documentClickEventListener);
     }
     if (this.actionKeyListener) {
       document.removeEventListener('keyup', this.actionKeyListener);
@@ -102,7 +102,7 @@ export class NgxAtDropdownlistComponent implements OnInit {
     };
 
     this.documentClickEventListener = documentClickEventListener.bind(this);
-    document.body.addEventListener('mousedown', this.documentClickEventListener);
+    document.addEventListener('mousedown', this.documentClickEventListener);
   }
 
   addActionKeyListener() {
