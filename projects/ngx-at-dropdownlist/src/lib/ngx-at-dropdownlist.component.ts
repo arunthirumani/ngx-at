@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { FormControl, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
@@ -16,6 +16,24 @@ export class NgxAtDropdownlistComponent implements OnInit {
   @Input() filterable;
   @Output() valueChange = new EventEmitter();
   @Output() filterChange = new EventEmitter();
+  @HostListener('document:click', ['$event'])
+  public documentClick(event) {
+    if (this.displayList && !this.isDropDownClicked(event) && !this.isMouseDownOnScroll(event)) {
+      this.toggleList();
+    }
+  }
+  @HostListener('document:keyup.escape', ['$event'])
+  public escListener() {
+    if (this.displayList) {
+      this.actionKeyHandler();
+    }
+  }
+  @HostListener('document:keyup.enter', ['$event'])
+  public enterListener() {
+    if (this.displayList) {
+      this.actionKeyHandler();
+    }
+  }
   displayList = false;
   documentClickEventListener;
   actionKeyListener;
@@ -49,8 +67,10 @@ export class NgxAtDropdownlistComponent implements OnInit {
   }
 
   dropdownClickHandler(event) {
-    event.stopPropagation();
-    event.preventDefault();
+    if (event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
     this.toggleList();
     if (this.displayList) {
       this.addEventListeners();
@@ -72,8 +92,6 @@ export class NgxAtDropdownlistComponent implements OnInit {
   }
 
   addEventListeners() {
-    this.addDocumentClickListener();
-    this.addActionKeyListener();
     if (!this.filterable) {
       this.addCharKeyListener();
     }
@@ -82,9 +100,6 @@ export class NgxAtDropdownlistComponent implements OnInit {
 
 
   removeEventListeners() {
-    if (this.documentClickEventListener) {
-      document.removeEventListener('mousedown', this.documentClickEventListener);
-    }
     if (this.actionKeyListener) {
       document.removeEventListener('keyup', this.actionKeyListener);
     }
@@ -105,21 +120,8 @@ export class NgxAtDropdownlistComponent implements OnInit {
     document.addEventListener('mousedown', this.documentClickEventListener);
   }
 
-  addActionKeyListener() {
-    const actionKeyListener = function escListener(event) {
-      if (!event) {
-        return;
-      }
-      event.preventDefault();
-      event.stopPropagation();
-      if (event.keyCode === this.ESCAPE_KEYCODE || event.keyCode === this.ENTER_KEYCODE) {
-        this.toggleList();
-        this.removeEventListeners();
-      }
-    };
-
-    this.actionKeyListener = actionKeyListener.bind(this);
-    document.addEventListener('keyup', this.actionKeyListener);
+  actionKeyHandler() {
+    this.toggleList();
   }
 
   addArrowKeyListener() {
