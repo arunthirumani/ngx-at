@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo';
-  dataList = ['apple', 'banana', 'carrot'];
+  dataList = ['apple', 'banana', 'carrot', 'mango', 'orange', 'kiwi'];
 }

@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxAtDropdownlistComponent } from './ngx-at-dropdownlist.component';
+import { AutoAdjustDirective } from './auto-adjust.directive';
 
 
 
 @NgModule({
-  declarations: [NgxAtDropdownlistComponent],
+  declarations: [NgxAtDropdownlistComponent, AutoAdjustDirective],
   imports: [
     BrowserModule,
     FormsModule,

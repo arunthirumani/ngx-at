@@ -19,6 +19,8 @@
     <div
         class="popup-container"
         [ngClass]="{'scrollable-list': !filterable}"
+        libAutoAdjust
+        *ngIf="displayList"
     >
         <div
             *ngIf="filterable"
@@ -30,7 +32,6 @@
             >
         </div>
         <ul
-            *ngIf="displayList"
             class="list-container"
             [ngClass]="{'scrollable-list': filterable}"
         >

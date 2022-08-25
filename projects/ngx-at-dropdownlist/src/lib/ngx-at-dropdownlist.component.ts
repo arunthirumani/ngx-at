@@ -22,13 +22,14 @@ export class NgxAtDropdownlistComponent implements OnInit {
       this.toggleList();
     }
   }
-  @HostListener('document:keyup.escape', ['$event'])
+  
+  @HostListener('document:keyup.escape')
   public escListener() {
     if (this.displayList) {
       this.actionKeyHandler();
     }
   }
-  @HostListener('document:keyup.enter', ['$event'])
+  @HostListener('document:keyup.enter')
   public enterListener() {
     if (this.displayList) {
       this.actionKeyHandler();
@@ -72,11 +73,6 @@ export class NgxAtDropdownlistComponent implements OnInit {
       event.preventDefault();
     }
     this.toggleList();
-    if (this.displayList) {
-      this.addEventListeners();
-    } else {
-      this.removeEventListeners();
-    }
   }
 
   toggleList() {
