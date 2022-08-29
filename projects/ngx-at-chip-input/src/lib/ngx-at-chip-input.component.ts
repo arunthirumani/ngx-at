@@ -1,19 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ngx-at-chip-input',
-  template: `
-    <p>
-      ngx-at-chip-input works!
-    </p>
-  `,
+  templateUrl: './ngx-at-chip-input.component.html',
   styles: []
 })
 export class NgxAtChipInputComponent implements OnInit {
 
+  chipInput = new FormControl();
+  chipList = new FormControl();
+
   constructor() { }
 
   ngOnInit() {
+    this.chipList.setValue([]);
+  }
+
+  addChipHandler() {
+    const chip = this.chipInput.value;
+    const chipList = this.chipList.value;
+    chipList.push(chip);
+    this.chipInput.setValue('');
   }
 
 }

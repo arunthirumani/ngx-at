@@ -1,0 +1,5 @@
+<input [formControl]="chipInput" placeholder="Enter text and press enter" (keyup.enter)="addChipHandler()"/>
+
+<div>
+  <span *ngFor="let chip of chipList.value">{{chip}}</span>
+</div>
