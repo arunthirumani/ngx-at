@@ -1,3 +1,8 @@
-<div class="dropdown-container">
-  <ngx-at-dropdownlist [dataList]="dataList"></ngx-at-dropdownlist>
-</div>
+<a *ngIf="showWidget" href="#" (click)="backHandler()">Back</a>
+<ul *ngIf="!showWidget">
+  <li>
+    <a href="#" (click)="widgetLinkHandler('chipInput')">Chip Input</a>
+  </li>
+</ul>
+
+<ngx-at-chip-input *ngIf="widgetType === 'chipInput'"></ngx-at-chip-input>
