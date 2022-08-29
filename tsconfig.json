@@ -24,6 +24,12 @@
       ],
       "ngx-at-dropdownlist/*": [
         "dist/ngx-at-dropdownlist/*"
+      ],
+      "ngx-at-chip-input": [
+        "dist/ngx-at-chip-input"
+      ],
+      "ngx-at-chip-input/*": [
+        "dist/ngx-at-chip-input/*"
       ]
     }
   },

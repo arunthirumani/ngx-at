@@ -159,6 +159,41 @@
           }
         }
       }
+    },
+    "ngx-at-chip-input": {
+      "projectType": "library",
+      "root": "projects/ngx-at-chip-input",
+      "sourceRoot": "projects/ngx-at-chip-input/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-at-chip-input/tsconfig.lib.json",
+            "project": "projects/ngx-at-chip-input/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-at-chip-input/src/test.ts",
+            "tsConfig": "projects/ngx-at-chip-input/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-at-chip-input/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-at-chip-input/tsconfig.lib.json",
+              "projects/ngx-at-chip-input/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ngx-at-dropdownlist"
 }
