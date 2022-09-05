@@ -1,0 +1,32 @@
+.at-chip-container {
+  display: inline-flex;
+  margin-left: 2px;
+  border-radius: 16px;
+  background-color: #e0e0e0;
+  padding: 7px 8px 7px 12px;
+  align-items: center;
+}
+.at-chip-close {
+  &::after {
+    content: '\00d7';
+    height: 18px;
+    width: 18px;
+    display: inline-flex;
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000de;
+    opacity: .4; 
+  }
+}
+.at-chip-list {
+  display: flex;
+  max-height: 200px;
+  overflow: auto;
+  margin-top: 5px;
+}

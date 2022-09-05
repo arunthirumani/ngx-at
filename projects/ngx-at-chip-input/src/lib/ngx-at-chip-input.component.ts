@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'ngx-at-chip-input',
   templateUrl: './ngx-at-chip-input.component.html',
-  styles: []
+  styleUrls: ['./ngx-at-chip-input.component.scss']
 })
 export class NgxAtChipInputComponent implements OnInit {
 
