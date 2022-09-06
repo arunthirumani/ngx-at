@@ -14,7 +14,7 @@ export class NgxAtChipInputComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.chipList.setValue([]);
+    this.chipList.setValue(['test1', 'long string', 'test2']);
   }
 
   addChipHandler() {

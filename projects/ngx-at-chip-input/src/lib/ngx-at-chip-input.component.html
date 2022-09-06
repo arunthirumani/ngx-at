@@ -1,4 +1,4 @@
-<input [formControl]="chipInput" placeholder="Enter text and press enter" (keyup.enter)="addChipHandler()"/>
+<input class="at-chip-input-box" [formControl]="chipInput" placeholder="Type here and press enter..." (keyup.enter)="addChipHandler()"/>
 
 <div class="at-chip-list">
   <div class="at-chip-container" *ngFor="let chip of chipList.value">
