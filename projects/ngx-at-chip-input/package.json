@@ -1,8 +1,17 @@
 {
   "name": "ngx-at-chip-input",
   "version": "0.0.1",
+  "description": "Easy to use chip input, just plug and play",
+  "keywords": [
+    "angular",
+    "typescript",
+    "chip input",
+    "chip list",
+    "chip input form control"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
-  }
+  },
+  "license": "MIT"
 }
