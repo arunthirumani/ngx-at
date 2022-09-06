@@ -3,6 +3,6 @@
 <div class="at-chip-list">
   <div class="at-chip-container" *ngFor="let chip of chipList.value; let chipIndex=index">
     <div>{{chip}}</div>
-    <div class="at-chip-close" (click)="removeChip(chipIndex)"></div>
+    <div class="at-chip-close" (click)="removeChipHandler(chipIndex)"></div>
   </div>
 </div>

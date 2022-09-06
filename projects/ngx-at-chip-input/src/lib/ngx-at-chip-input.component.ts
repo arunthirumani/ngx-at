@@ -24,7 +24,7 @@ export class NgxAtChipInputComponent implements OnInit {
     this.chipInput.setValue('');
   }
 
-  removeChip(index) {
+  removeChipHandler(index) {
     const chip = this.chipInput.value;
     const chipList: Array<string> = this.chipList.value;
     chipList.splice(index, 1);
