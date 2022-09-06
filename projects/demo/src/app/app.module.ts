@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgxAtDropdownlistModule } from 'ngx-at-dropdownlist';
 import { ChipInputComponent } from './chip-input/chip-input.component';
 import { NgxAtChipInputModule } from 'ngx-at-chip-input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NgxAtChipInputModule } from 'ngx-at-chip-input';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     NgxAtDropdownlistModule,
     NgxAtChipInputModule
   ],

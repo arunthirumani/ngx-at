@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-chip-input',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChipInputComponent implements OnInit {
 
+  chipList = new FormControl();
+  chipListFormValue;
+
   constructor() { }
 
   ngOnInit() {
+    this.subscribeToFormChanges();
+    this.chipList.setValue(['test1', 'chip1', 'another chip']);
+  }
+
+  subscribeToFormChanges() {
+    this.chipList.valueChanges.subscribe(value=>{
+      this.chipListFormValue = value;
+    });
   }
 
 }
