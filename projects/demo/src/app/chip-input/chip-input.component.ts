@@ -16,6 +16,7 @@ export class ChipInputComponent implements OnInit {
   ngOnInit() {
     this.subscribeToFormChanges();
     this.chipList.setValue(['test1', 'chip1', 'another chip']);
+    this.chipList.disable();
   }
 
   subscribeToFormChanges() {

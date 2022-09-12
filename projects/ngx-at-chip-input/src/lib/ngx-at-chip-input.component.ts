@@ -37,6 +37,9 @@ export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
   }
 
   removeChipHandler(index) {
+    if (this.chipList.disabled) {
+      return;
+    }
     const chipList: Array<string> = this.chipList.value;
     const chipListClone = chipList.slice();
     chipListClone.splice(index, 1);
@@ -53,7 +56,7 @@ export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
 
   registerOnChange(fn) {
     this.chipList.valueChanges.subscribe((value) => {
-        fn(value);
+      fn(value);
     });
   }
 

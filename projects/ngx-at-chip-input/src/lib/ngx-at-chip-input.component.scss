@@ -60,3 +60,7 @@
   border-radius: 10px;
   padding: 5px;
 }
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}

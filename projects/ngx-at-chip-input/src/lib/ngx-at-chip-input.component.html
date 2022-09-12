@@ -1,7 +1,13 @@
-<input class="at-chip-input-box" [formControl]="chipInput" placeholder="Type here and press enter..." (keyup.enter)="addChipHandler()"/>
+<input 
+  class="at-chip-input-box" 
+  [formControl]="chipInput" 
+  placeholder="Type here and press enter..." 
+  (keyup.enter)="addChipHandler()"
+  [ngClass]="{'disabled': chipInput.disabled}"
+/>
 
 <ul class="at-chip-list">
-  <li class="at-chip-container" *ngFor="let chip of chipList.value; let chipIndex=index">
+  <li class="at-chip-container" *ngFor="let chip of chipList.value; let chipIndex=index" [ngClass]="{'disabled': chipInput.disabled}">
     <div>{{chip}}</div>
     <button tabindex="0" class="at-chip-close" [attr.aria-label]="'X,'+chip" (click)="removeChipHandler(chipIndex)"></button>
   </li>
