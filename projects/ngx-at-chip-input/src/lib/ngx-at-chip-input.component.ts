@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, forwardRef, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, forwardRef, OnInit, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
 
 @Component({
@@ -13,7 +13,8 @@ import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Va
     provide: NG_VALIDATORS,
     useExisting: forwardRef(() => NgxAtChipInputComponent),
     multi: true
-  }]
+  }],
+  encapsulation: ViewEncapsulation.None
 })
 export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
 
