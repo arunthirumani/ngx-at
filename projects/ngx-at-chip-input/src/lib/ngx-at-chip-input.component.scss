@@ -11,14 +11,14 @@
   position: relative;
   &::after {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     opacity: 0;
     pointer-events: none;
     background-color: black;
-    content: '';
+    content: "";
     border-radius: inherit;
   }
   &:hover::after {
@@ -26,8 +26,11 @@
   }
 }
 .at-chip-close {
+  padding: 0;
+  border: none;
+  background: transparent;
   &::after {
-    content: '\00d7';
+    content: "\00d7";
     height: 18px;
     width: 18px;
     display: inline-flex;
@@ -40,7 +43,7 @@
     justify-content: center;
     align-items: center;
     background-color: #000000de;
-    opacity: .4; 
+    opacity: 0.4;
   }
 }
 .at-chip-list {
@@ -48,6 +51,7 @@
   max-height: 200px;
   overflow: auto;
   margin-top: 5px;
+  padding: 0;
 }
 .at-chip-input-box {
   background-color: #0000000a;

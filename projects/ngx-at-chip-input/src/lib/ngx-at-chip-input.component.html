@@ -1,8 +1,8 @@
 <input class="at-chip-input-box" [formControl]="chipInput" placeholder="Type here and press enter..." (keyup.enter)="addChipHandler()"/>
 
-<div class="at-chip-list">
-  <div class="at-chip-container" *ngFor="let chip of chipList.value; let chipIndex=index">
+<ul class="at-chip-list">
+  <li class="at-chip-container" *ngFor="let chip of chipList.value; let chipIndex=index">
     <div>{{chip}}</div>
-    <div class="at-chip-close" (click)="removeChipHandler(chipIndex)"></div>
-  </div>
-</div>
+    <button tabindex="0" class="at-chip-close" [attr.aria-label]="'X,'+chip" (click)="removeChipHandler(chipIndex)"></button>
+  </li>
+</ul>
