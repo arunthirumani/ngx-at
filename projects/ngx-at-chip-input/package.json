@@ -2,7 +2,14 @@
   "name": "ngx-at-chip-input",
   "version": "0.0.2",
   "description": "Easy to use chip input, just plug and play",
+  "author": "Arun",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arunthirumani/ngx-at/tree/main/projects/ngx-at-chip-input"
+  },
   "keywords": [
+    "ngx chip input",
+    "angular chip inputs",
     "angular",
     "typescript",
     "chip input",
