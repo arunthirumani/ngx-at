@@ -1,7 +1,7 @@
 <input 
   class="at-chip-input-box" 
   [formControl]="chipInput" 
-  placeholder="Type here and press enter..." 
+  [placeholder]="placeholder" 
   (keyup.enter)="addChipHandler()"
   [ngClass]="{'disabled': chipInput.disabled}"
 />

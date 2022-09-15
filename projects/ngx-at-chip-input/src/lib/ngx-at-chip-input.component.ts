@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, forwardRef, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, forwardRef, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,7 @@ import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Va
   encapsulation: ViewEncapsulation.None
 })
 export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
-
+  @Input() placeholder = 'Type here and press enter...'
   chipInput = new FormControl();
   chipList = new FormControl();
 
@@ -28,6 +28,9 @@ export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
   }
 
   addChipHandler() {
+    if (this.chipList.disabled) {
+      return;
+    }
     const chip = this.chipInput.value;
     const chipList = this.chipList.value;
     const chipListClone = chipList.slice();

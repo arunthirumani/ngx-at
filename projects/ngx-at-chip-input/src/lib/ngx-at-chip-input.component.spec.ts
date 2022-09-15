@@ -38,10 +38,40 @@ describe('NgxAtChipInputComponent', () => {
     inputBox.dispatchEvent(event);    
     expect(component.chipInput.addChipHandler).toHaveBeenCalled();
   });
+
+  it('Chips should not be added when form control is disabled', () => {
+    component.chipList.disable();
+    fixture.detectChanges();
+    const inputBox = inputNativeElement.querySelector('input');
+    inputBox.value="test";
+    const event = new KeyboardEvent("keyup", {
+      'key': 'Enter'
+    });
+    inputBox.dispatchEvent(event);
+    fixture.detectChanges();
+    const chipCount = component.chipList.value.length;    
+    expect(chipCount).toEqual(3);
+  });
+
+  it('Chip should be deleted when clicked on cross button', () => {
+    const closeButton = inputNativeElement.querySelector('button');
+    const event = new Event('click');
+    closeButton.dispatchEvent(event);
+    const chipCount = component.chipList.value.length;    
+    expect(chipCount).toEqual(2);
+  });
+
+  it('Placeholder input should be honoured', () => {
+    const inputBox = inputNativeElement.querySelector('input');    
+    expect(inputBox.placeholder).toEqual('custom place holder');
+  });
+
 });
 
+
+
 @Component({
-  template: `<ngx-at-chip-input [formControl]="chipList"></ngx-at-chip-input>`
+  template: `<ngx-at-chip-input placeholder="custom place holder" [formControl]="chipList"></ngx-at-chip-input>`
 })
 class TestChipInput implements OnInit {
   @ViewChild(NgxAtChipInputComponent, { static: false }) chipInput: NgxAtChipInputComponent;
