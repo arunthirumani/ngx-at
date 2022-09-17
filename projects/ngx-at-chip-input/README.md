@@ -7,7 +7,7 @@ chipList.setValue(['test1', 'chip1', 'another chip']);
 \</ngx-at-chip-input>  
 
 ### Using array as input
-chipArray=['Hydrogen', 'Helium', 'Lithium', 'Berilium'];    
+chipArray=['Hydrogen', 'Helium', 'Lithium', 'Berilium'];  
 \<ngx-at-chip-input  
  &nbsp;&nbsp;placeholder="custom placeholder"   
  &nbsp;&nbsp;[chipArray]="chipArray"  
