@@ -77,7 +77,7 @@ export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
   }
 
   addChipToFormControl() {
-    if (this.chipList.disabled) {
+    if (this.chipList.disabled || !this.chipInput.value) {
       return;
     }
     const chip = this.chipInput.value;
