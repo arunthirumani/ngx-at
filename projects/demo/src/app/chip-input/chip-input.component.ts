@@ -10,19 +10,24 @@ export class ChipInputComponent implements OnInit {
 
   chipList = new FormControl();
   chipListFormValue;
+  chipArray = ['Hydrogen', 'Helium', 'Lithium', 'Berilium'];
+  chipInputEmittedData;
 
   constructor() { }
 
   ngOnInit() {
     this.subscribeToFormChanges();
     this.chipList.setValue(['test1', 'chip1', 'another chip']);
-    this.chipList.disable();
   }
 
   subscribeToFormChanges() {
     this.chipList.valueChanges.subscribe(value=>{
       this.chipListFormValue = value;
     });
+  }
+
+  chipListChangeHandler(data) {
+    this.chipInputEmittedData = data;
   }
 
 }
