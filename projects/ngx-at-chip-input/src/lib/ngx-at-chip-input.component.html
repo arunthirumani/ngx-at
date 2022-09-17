@@ -6,9 +6,18 @@
   [ngClass]="{'disabled': chipInput.disabled}"
 />
 
-<ul class="at-chip-list">
-  <li class="at-chip-container" *ngFor="let chip of chipList.value; let chipIndex=index" [ngClass]="{'disabled': chipInput.disabled}">
+<ul class="at-chip-list" *ngIf="chipArray; else formControlTemplate">
+  <li class="at-chip-container" *ngFor="let chip of chipArray; let chipIndex=index" [ngClass]="{'disabled': chipInput.disabled}">
     <div>{{chip}}</div>
     <button tabindex="0" class="at-chip-close" [attr.aria-label]="'X,'+chip" (click)="removeChipHandler(chipIndex)"></button>
   </li>
 </ul>
+
+<ng-template #formControlTemplate>
+  <ul class="at-chip-list">
+    <li class="at-chip-container" *ngFor="let chip of chipList.value; let chipIndex=index" [ngClass]="{'disabled': chipInput.disabled}">
+      <div>{{chip}}</div>
+      <button tabindex="0" class="at-chip-close" [attr.aria-label]="'X,'+chip" (click)="removeChipHandler(chipIndex)"></button>
+    </li>
+  </ul>
+</ng-template>

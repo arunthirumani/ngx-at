@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, forwardRef, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,9 @@ import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Va
   encapsulation: ViewEncapsulation.None
 })
 export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
-  @Input() placeholder = 'Type here and press enter...'
+  @Input() placeholder = 'Type here and press enter...';
+  @Input() chipArray;
+  @Output() chipListChange = new EventEmitter();
   chipInput = new FormControl();
   chipList = new FormControl();
 
@@ -28,25 +30,19 @@ export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
   }
 
   addChipHandler() {
-    if (this.chipList.disabled) {
-      return;
+    if (this.chipArray) {
+      this.addChipToArray();
+    } else {
+      this.addChipToFormControl();
     }
-    const chip = this.chipInput.value;
-    const chipList = this.chipList.value;
-    const chipListClone = chipList.slice();
-    chipListClone.push(chip);
-    this.chipList.setValue(chipListClone);
-    this.chipInput.setValue('');
   }
 
   removeChipHandler(index) {
-    if (this.chipList.disabled) {
-      return;
+    if (this.chipArray) {
+      this.removeInArray(index);
+    } else {
+      this.removeInFormControl(index);
     }
-    const chipList: Array<string> = this.chipList.value;
-    const chipListClone = chipList.slice();
-    chipListClone.splice(index, 1);
-    this.chipList.setValue(chipListClone);
   }
 
   writeValue(value) {
@@ -78,6 +74,43 @@ export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
   }
 
   registerOnTouched(fn) {
+  }
+
+  addChipToFormControl() {
+    if (this.chipList.disabled) {
+      return;
+    }
+    const chip = this.chipInput.value;
+    const chipList = this.chipList.value;
+    const chipListClone = chipList.slice();
+    chipListClone.push(chip);
+    this.chipList.setValue(chipListClone);
+    this.chipInput.setValue('');
+  }
+
+  addChipToArray() {
+    if (this.chipInput.value) {
+      this.chipArray.push(this.chipInput.value);
+      this.chipListChange.emit(this.chipArray);
+    }
+  }
+
+  removeInFormControl(index) {
+    if (this.chipList.disabled) {
+      return;
+    }
+    const chipList: Array<string> = this.chipList.value;
+    const chipListClone = chipList.slice();
+    chipListClone.splice(index, 1);
+    this.chipList.setValue(chipListClone.slice());
+  }
+
+  removeInArray(index) {
+    if (!this.chipArray || !this.chipArray.length) {
+      return;
+    }
+    this.chipArray.splice(index, 1);
+    this.chipListChange.emit(this.chipArray.slice());
   }
 
 }
