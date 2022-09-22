@@ -1,7 +1,7 @@
 {
   "name": "ngx-at-chip-input",
-  "version": "0.0.4",
-  "description": "Easy to use chip input, just plug and play",
+  "version": "1.0.0",
+  "description": "Easy to use Angular chip input, just plug and play",
   "author": "Arun",
   "repository": {
     "type": "git",
