@@ -20,6 +20,7 @@ export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder = 'Type here and press enter...';
   @Input() chipArray;
   @Output() chipListChange = new EventEmitter();
+  @Output() chipArrayChange = new EventEmitter();
   chipInput = new FormControl();
   chipList = new FormControl();
 
@@ -92,6 +93,7 @@ export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
     if (this.chipInput.value) {
       this.chipArray.push(this.chipInput.value);
       this.chipListChange.emit(this.chipArray);
+      this.chipArrayChange.emit(this.chipArray.slice());
     }
   }
 
@@ -111,6 +113,7 @@ export class NgxAtChipInputComponent implements OnInit, ControlValueAccessor {
     }
     this.chipArray.splice(index, 1);
     this.chipListChange.emit(this.chipArray.slice());
+    this.chipArrayChange.emit(this.chipArray.slice());
   }
 
 }
