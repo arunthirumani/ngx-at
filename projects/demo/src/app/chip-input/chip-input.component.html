@@ -7,9 +7,9 @@
 </div>
 
 <div class="box mt-2">
-  <ngx-at-chip-input placeholder="custom placeholder" [chipArray]="chipArray" (chipListChange)="chipListChangeHandler($event)"></ngx-at-chip-input>
+  <ngx-at-chip-input placeholder="custom placeholder" [(chipArray)]="chipArray" (chipListChange)="chipListChangeHandler($event)"></ngx-at-chip-input>
   <div class="data-container">
-    <label class="label">Emitted Value:</label>
-    <div class="info">{{chipInputEmittedData}}</div>
+    <label class="label">Chip Array:</label>
+    <div class="info">{{chipArray}}</div>
   </div>
 </div>
